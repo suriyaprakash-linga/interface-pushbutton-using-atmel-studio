@@ -1,0 +1,35 @@
+/*
+ * Interface pushbutton.cpp
+ *
+ * Created: 28-05-2021 09:29:10
+ * Author : MSP
+ */ 
+
+#include <avr/io.h>
+
+#include <util/delay.h>
+
+#define  sw 0
+#define led 1
+
+int main(void)
+{
+	
+	DDRB &=(1<<sw);
+	DDRB |=(1<<led);
+	
+	
+    /* Replace with your application code */
+    while (1) 
+    {
+		if((PINB &(1<<sw))==1)
+	{
+		PORTB |=(1<<led);//on
+	}
+	else
+	{
+		PORTB &=~(1<<led);//off
+    }
+	}
+}
+
